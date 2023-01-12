@@ -16,6 +16,15 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+    const task = {
+      id: Math.random(),
+      title: newTaskTitle,
+      isComplete: false
+    }
+
+    if(newTaskTitle){
+      setTasks([...tasks, task]);
+    } //Adicionar posteriormente um feedback ao usuário caso envie com titulo vazio.
   }
 
   function handleToggleTaskCompletion(id: number) {
@@ -34,7 +43,7 @@ export function TaskList() {
         <div className="input-group">
           <input 
             type="text" 
-            placeholder="Adicionar novo todo" 
+            placeholder="Adicionar novo 'to do'" 
             onChange={(e) => setNewTaskTitle(e.target.value)}
             value={newTaskTitle}
           />
