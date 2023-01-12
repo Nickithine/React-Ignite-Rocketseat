@@ -29,6 +29,13 @@ export function TaskList() {
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
+
+    tasks.map((task) => {
+      if(task.id == id){
+        task.isComplete ? task.isComplete = false : task.isComplete = true;
+      }
+    })
+    setTasks([...tasks]); // Isso é Gambiarra??????????? Não estava atualizando a renderização, embora o array retornasse corretamente com seus objetos e atributos.
   }
 
   function handleRemoveTask(id: number) {
